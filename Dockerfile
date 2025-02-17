@@ -3,5 +3,6 @@ WORKDIR /usr/app
 COPY package*.json .
 RUN npm install --quiet
 COPY app.js .
-EXPOSE 3000
+ARG PORT
+EXPOSE ${PORT}
 CMD ["npm", "run", "start"]

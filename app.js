@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
-const port = 3000;
 
 app.use(morgan('dev'));
 
@@ -15,6 +14,7 @@ app.get('/delay/:delay', (req, res) => {
   }, delay);
 });
 
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Delay API listening on port ${port}`);
 });
